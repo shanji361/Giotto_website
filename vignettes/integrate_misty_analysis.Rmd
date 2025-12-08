@@ -646,7 +646,7 @@ run_misty(
 )
 
 # Spatial-only analysis with linear model and bypass intrinsic view
-# Tests purely spatial predictive power without cell's own composition
+# Tests purely spatial predictive power without the cell's own composition
 run_misty(view = final_misty_views, 
           cv.folds = 10, 
           model.function = linear_model, 
@@ -660,7 +660,7 @@ run_misty(view = final_misty_views,
 `misty_results_complete` is a MISTy result object containing aggregated model performance metrics and spatial interaction data from random forest models trained with intrinsic baseline comparisons (bypass.intra = FALSE). `misty_results_complete_linear` is a MISTy result object containing aggregated model performance metrics and spatial interaction data from linear models trained without intrinsic baseline interference (bypass.intra = TRUE).
 
 ```{r, eval = FALSE}
-# Collect aggregated results from the random forest model version of the complete anlysis 
+# Collect aggregated results from the random forest model version of the complete analysis 
 misty_results_complete <- collect_results(file.path(save_dir, "misty_results_complete"))
 
 # Collect aggregated results from the linear model version of the complete analysis  
@@ -670,13 +670,13 @@ misty_results_complete_linear <- collect_results(file.path(save_dir, "misty_resu
 
 ## Model Performance and Contributions
 
-With `bypass.intra` (default = FALSE):
+With `bypass.intra = FALSE`:
 
 - **intra.R²** → Variance explained by intrinsic features within the same cell.
 
 - **gain.R²** →  Additional variance explained by spatial context (beyond intrinsic features).
 
-With `bypass.intra` (default = TRUE):
+With `bypass.intra = TRUE`:
 
 - **gain.R²** → Total variance explained by spatial context.
   
@@ -1247,3 +1247,4 @@ Python configuration
  NOTE: Python version was forced by use_python() function
 
 ```
+
